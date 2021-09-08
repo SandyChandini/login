@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SISIRA-LoginForm</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="D:\e2s2\wtl\week4\logo.ico" type="image/x-icon">
+<script type="text/javascript">
+	var d={"Chandini":"03042001","Sathvika":"Kopalli"};
+	var count=3;
+	function validate(){
+		var uname=document.getElementById('username').value;
+		var password=document.getElementById('password').value;
+		
+		if(uname=="" || password==""){
+			alert("Fill the fields");
+			return false;
+		}
+		else if(uname in d){
+			if(password==d[uname]){
+				return true;
+			}
+			else{
+				document.getElementById('passwordlabel').style.visibility="visible";
+				count--;
+				if(count==0){
+					alert("Sorry you have reached password limit");
+					window.location.href="password.html";
+				}
+				return false;
+			}
+			
+		}
+		else{
+			document.getElementById('usernamelabel').style.visibility="visible";
+			return false;
+		}
+	}
+	//alert("Hello");
+</script>
+</head>
+<body background="naruto.jpg" vlink="red" style="color:white" link="yellow">
+	<nav align="right">
+		<a href="D:\e2s2\wtl\week3\profile.html">Profile</a>&nbsp
+		<a href="C:\Users\sri\Desktop\html\gallery.html">Gallery</a>&nbsp
+		<a href="C:/Users/sri/Desktop/html/gallary.html">Achievements</a>&nbsp
+		<a href="D:\e2s2\wtl\week3\resources.html">Resources</a>&nbsp
+		<a href="D:\e2s2\wtl\week3\notifications.html">Notifications</a>&nbsp
+		<a href="D:\e2s2\wtl\week2\login.html">Home</a>&nbsp
+	</nav>
+	<h1 align="center">Welcome to SISIRA Website</h1>
+	<marquee> Creativity and Humanity overflows</marquee>
+<br><br><br>
+<form action="D:\e2s2\wtl\week3\profile.html" onsubmit="return validate()">
+<table align="center">
+<legend align="center"><b>LOGIN HERE</b></legend>
+
+<tr>
+<td><label name="username">UserName:</label></td>
+<td><input type="text" name="username" placeholder="Username" id="username" ></input></td>
+<td><label id="usernamelabel" style="color: red;visibility: hidden;">Invalid</label></td></tr>
+
+<tr>
+<td><label name="password">Password:</label></td>
+<td><input type="password" name="password" id="password" ></input></td>
+<td><label id="passwordlabel" style="color: red;visibility: hidden;">Incorrect</label></td></tr>
+
+<tr>
+<td><button name="submit">Sign in</button></td>
+<td><button name="sign up" onclick="window.location.href='Registration.html'">Sign up</button></td>
+</tr>
+
+
+</table>
+
+
+<p align="center"><a href="password.html">Forgotten password</a></p><br>
+<h3 align="center">Login with:</h3><br>
+<h3 align="center"><a href="https://accounts.google.com/ServiceLogin/signinchooser?elo=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">Google account</a></h3><br>
+<h3 align="center"><a href="https://en-gb.facebook.com/login/web/" target="_blank">Facebook</a><br></h3><br>
+
+</body>
+</html>
